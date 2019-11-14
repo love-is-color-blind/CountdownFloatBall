@@ -10,7 +10,6 @@ import com.huxq17.floatball.libarary.FloatBallUtil;
 
 public class StatusBarView extends View {
 
-    private Context mContext;
     private FloatBallManager mFloatBallManager;
     private WindowManager.LayoutParams mLayoutParams;
     private boolean isAdded;
@@ -24,7 +23,6 @@ public class StatusBarView extends View {
     public StatusBarView(Context context, FloatBallManager floatBallManager) {
         super(context);
 //        setBackgroundColor(Color.BLACK);
-        mContext = context;
         mFloatBallManager = floatBallManager;
         mLayoutParams = FloatBallUtil.getStatusBarLayoutParams(context);
     }

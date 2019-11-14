@@ -2,6 +2,7 @@ package priv.jiangtao.countdown;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -34,24 +35,19 @@ public class MainActivity extends Activity {
                 toast("点击了悬浮球");
             }
         });
+
+        startService(new Intent(getBaseContext(), MyService.class));
     }
 
     @Override
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        mFloatballManager.show();
+//        mFloatballManager.show();
         mFloatballManager.onFloatBallClick();
-    }
-
-    @Override
-    public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        mFloatballManager.hide();
     }
 
 
     private void init() {
-        //1 初始化悬浮球配置，定义好悬浮球大小和icon的drawable
         int ballSize = DensityUtil.dip2px(this, 45);
         Drawable ballIcon = BackGroudSeletor.getdrawble("ic_floatball", this);
         FloatBallCfg ballCfg = new FloatBallCfg(ballSize, ballIcon, FloatBallCfg.Gravity.RIGHT_CENTER, false);
